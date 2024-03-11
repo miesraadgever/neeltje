@@ -1,0 +1,7 @@
+//NEDERLANDS//
+
+export default {
+  general: {
+
+  },
+};

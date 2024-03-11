@@ -1,0 +1,8 @@
+//ENGELS//
+
+export default {
+  general: {
+
+  },
+
+};
