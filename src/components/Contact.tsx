@@ -2,9 +2,9 @@
 
 import { useForm } from 'react-hook-form';
 import { sendEmail } from '../../utils/send-email';
-import {useI18n} from "../../translations/client";
+import {useCurrentLocale, useI18n} from "../../translations/client";
 import ReCAPTCHA from "react-google-recaptcha";
-import {RefObject, useRef} from "react";
+import {RefObject, useEffect, useRef} from "react";
 
 export type FormData = {
     name: string;
@@ -17,6 +17,8 @@ const Contact = () => {
     const { register, handleSubmit, setValue } = useForm<FormData>();
     const t = useI18n()
     const recaptcha: RefObject<ReCAPTCHA> = useRef(null);
+    const language = useCurrentLocale();
+
 
     const onSubmit = async (data: FormData) => {
         // Perform reCAPTCHA validation before sending the email
@@ -90,6 +92,7 @@ const Contact = () => {
                         sitekey="6LfRfZYpAAAAAKa4lMdq0SsnlwQpHOn_aEGKmvSO"
                         onChange={onCaptchaChange}
                         ref={recaptcha}
+                        hl={`${language === "nl" ? "nl" : "en-GB"}`}
                     />
                 </div>
             </div>
