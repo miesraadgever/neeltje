@@ -2,9 +2,12 @@
 
 export default {
   general: {
-
+    submit: "Send message"
   },
   contact : {
-    page: "contact page"
+    name: "Fullname",
+    email: "Email address",
+    message: "Message",
+    type: "Type your message here..."
   }
 };

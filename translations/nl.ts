@@ -2,9 +2,12 @@
 
 export default {
   general: {
-
+    submit: "Verstuur bericht"
   },
   contact : {
-    page: "contact pagina"
+    name: "Naam",
+    email: "E-mail adres",
+    message: "Bericht",
+    type: "Type hier uw bericht..."
   }
 };

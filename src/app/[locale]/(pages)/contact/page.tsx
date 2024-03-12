@@ -1,14 +1,18 @@
-"use client"
+"use server";
 
 import React from 'react';
-import {useI18n} from "../../../../../translations/client";
+import dynamic from "next/dynamic";
 
-const Page = () => {
-    const t = useI18n()
+const Page = async () => {
+    const Contact = dynamic(() => import("../../../../components/Contact"), {
+        ssr: false,
+    });
 
     return (
-        <div className={"flex min-h-screen flex-col items-center justify-between p-24"}>
-            {t("contact.page")}
+        <div className="flex justify-center items-center flex-col">
+            <div className="min-w-[50%] max-h-[90%] mt-20">
+                <Contact />
+            </div>
         </div>
     );
 };
