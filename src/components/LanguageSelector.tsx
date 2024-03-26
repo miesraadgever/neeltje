@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "primereact/button";
 import { useChangeLocale, useCurrentLocale } from "../../translations/client";
+import { Button } from 'primereact/button'
 
 const LanguageSelector = () => {
   const currentLocale = useCurrentLocale();
