@@ -1,8 +1,9 @@
 "use client"
 
 import React from "react";
-import Image from "next/image";
 import {useI18n} from "../../../../../translations/client";
+import image from "@/public/2.jpg"
+import Image from "next/image";
 
 const Page = () => {
   const t = useI18n();
@@ -10,8 +11,8 @@ const Page = () => {
   return (
       <>
         <div className="grid grid-rows-3 grid-flow-col gap-4">
-          <div className="row-span-3 col-span-2">
-            <img src="./public/11.png" alt="My Image1"></img></div>
+          <div className="row-span-3 col-span-2 mt-5 ml-9">
+            <Image width={500} height={600} src={image} alt="My Image1"></Image></div>
           <div className="col-span-1 font-medium text-4xl pt-10">{t("praktisch.kosten")} 
               </div>
           <div className="row-span-2 col-span-1">
