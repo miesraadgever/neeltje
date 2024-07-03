@@ -2,53 +2,42 @@
 
 import React from "react";
 import Image from "next/image";
+import image from "@/public/12.jpg"
 import {useI18n} from "../../../../../translations/client";
 
 const Page = () => {
   const t = useI18n();
   
   return (
-      <>
-        <div className="grid grid-cols-6 gap-4 m-10">
-          <div className="col-span-2">
-            {t("lessen.caption")} <br /><br />
-            {t("lessen.caption1")} <br /><br />
-            {t("lessen.caption2")} <br /><br />
-            {t("lessen.taal")} <br /><br /></div>
-          <div className="col-span-4"> 
-          <img src="./public/11.png" alt="My Image1"></img>
+    <>
+      <div className="grid grid-cols-6 gap-4 m-10 pl-10">
+        <div className="col-span-4 pt-10 pr-10">
+          <p className="col-span-4 font-medium text-2xl mb-4">{t("lessen.title1")}</p>
+          {t("lessen.caption")} <br /><br /> 
+          {t("lessen.caption1")} {t("lessen.caption2")} {t("lessen.caption3")} <br /><br />
+          {t("lessen.caption4")}
+          <p className="col-span-4 font-medium text-2xl mb-4 pt-10">{t("lessen.title2")}</p>
+          {t("lessen.les")} {t("lessen.les1")}  <br /><br />
+          <div className="grid grid-cols-2 gap-4 text-s">
+            <div>
+              <i>{t("lessen.di1")}</i><br />
+              <i>{t("lessen.di2")}</i> <br />
+              <i>{t("lessen.di3")}</i><br /><br />
+            </div>
+            <div>
+              <i>{t("lessen.wo1")}</i><br />
+              <i>{t("lessen.wo2")}</i><br />
+              <i>{t("lessen.wo3")}</i><br /><br />
+            </div>
           </div>
-          <div className="col-span-3 font-medium text-4xl pt-10">{t("lessen.title1")} </div>
-          <div className="col-span-3 font-medium text-4xl pt-10">{t("lessen.title2")} </div>
-          <div className="col-span-3 pr-10">
-              {t("lessen.patroon")} <br /><br />
-              {t("lessen.patroon1")} <br /><br />
-              {t("lessen.patroon2")} <br /><br />  </div>
-          <div className="col-span-3 pr-10">
-             {t("lessen.vrij")} <br /><br />
-             {t("lessen.vrij1")} <br /><br />
-             {t("lessen.vrij2")} <br /><br /> 
-             {t("lessen.vrij3")} <br /><br /></div>
-          <div className="col-span-3 pt-10">
-          <img src="./public/2.png" alt="My Image2"></img>
-          </div>
-          <div className="col-span-3 pt-10">
-          <img src="./public/3.png" alt="My Image3"></img>
-          </div>
-          <div className="col-span-3 pt-10">
-              <i>{t("lestijden.caption")} <br /><br />
-              {t("lestijden.patroontijd")} <br />
-              {t("lestijden.patroontijd1")} <br />
-              {t("lestijden.patroontijd2")} <br /></i></div>
-          <div className="col-span-3 pt-10">
-             <i>{t("lestijden.caption1")} <br /><br />
-             {t("lestijden.vrijtijd")} <br />
-             {t("lestijden.vrijtijd2")} <br />
-             {t("lestijden.vrijtijd3")} <br /></i></div>
         </div>
-      
-      </>
-  )
+        <div className="col-span-2 pt-10">
+          <Image width={900} height={1000} src={image} alt="patroon" /><br />
+         
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Page;

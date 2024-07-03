@@ -13,7 +13,7 @@ const Header = () => {
     <div className={"flex flex-row justify-between m-3"}>
       <div>
         <Link href={"/"} className={"hover:opacity-50"}>
-          <span className={"font-medium text-xl"}>Naailes en patroontekenen bij Neeltje</span>
+          <span className={"text-md"}></span>
         </Link>
       </div>
       <div className={"flex flex-row gap-5 mr-5 text-md"}>
