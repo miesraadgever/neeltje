@@ -1,3 +1,5 @@
+// "use for responsiveness"
+
 import { useEffect, useState } from "react";
 
 export interface Size {
