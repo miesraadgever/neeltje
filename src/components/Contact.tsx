@@ -5,6 +5,7 @@ import { sendEmail } from '../../utils/send-email';
 import {useCurrentLocale, useI18n} from "../../translations/client";
 import ReCAPTCHA from "react-google-recaptcha";
 import {RefObject, useEffect, useRef} from "react";
+import {useWindowSize} from "@/lib/hooks/useWindowsize";
 
 export type FormData = {
     name: string;
@@ -18,6 +19,9 @@ const Contact = () => {
     const t = useI18n()
     const recaptcha: RefObject<ReCAPTCHA> = useRef(null);
     const language = useCurrentLocale();
+
+    const windowSize = useWindowSize();
+    const smallScreen = windowSize.width! < 745;
 
 
     const onSubmit = async (data: FormData) => {
@@ -38,7 +42,7 @@ const Contact = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='mb-5'>
+            <div className= {'mb-5'}>
                 <label
                     htmlFor='name'
                     className='mb-3 block text-base font-medium text-black'
@@ -52,7 +56,7 @@ const Contact = () => {
                     {...register('name', { required: true })}
                 />
             </div>
-            <div className='mb-5'>
+            <div className= {'mb-5'}>
                 <label
                     htmlFor='email'
                     className='mb-3 block text-base font-medium text-black'
@@ -66,7 +70,7 @@ const Contact = () => {
                     {...register('email', { required: true })}
                 />
             </div>
-            <div className='mb-5'>
+            <div className= {'mb-5'}>
                 <label
                     htmlFor='message'
                     className='mb-3 block text-base font-medium text-black'
@@ -80,12 +84,11 @@ const Contact = () => {
                     {...register('message', { required: true })}
                 ></textarea>
             </div>
-            <div className={"flex flex-row justify-between"}>
-                <div className={"flex align-baseline"}>
-                    <button className='hover:shadow-form rounded-md bg-gray-400 py-3 px-8 text-base font-semibold text-white outline-none'>
+
+            <div className={smallScreen ? "flex flex-col gap-3" : "flex flex-row justify-between "}>
+                    <button className='hover:shadow-form rounded-md bg-gray-400 px-8 py-3 text-base font-semibold text-white outline-none'>
                         {t("general.submit")}
                     </button>
-                </div>
                 <div className="">
                     <ReCAPTCHA
                         size="normal"

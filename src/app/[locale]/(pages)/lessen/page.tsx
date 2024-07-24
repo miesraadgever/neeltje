@@ -1,16 +1,20 @@
 "use client"
 
-import React from "react";
+import React, {useState} from "react";
 import Image from "next/image";
 import image from "@/public/12.jpg"
 import {useI18n} from "../../../../../translations/client";
+import {useWindowSize} from "@/lib/hooks/useWindowsize";
 
 const Page = () => {
   const t = useI18n();
-  
+
+  const windowSize = useWindowSize();
+  const smallScreen = windowSize.width! < 745;
+
   return (
     <>
-      <div className="grid grid-cols-6 gap-4 m-10 pl-10">
+      <div className={ smallScreen ? `pt-3 flex flex-col ps-3`: "grid grid-cols-6 gap-4 m-10 pl-10"}>
         <div className="col-span-4 pt-10 pr-10">
           <p className="col-span-4 font-medium text-2xl mb-4">{t("lessen.title1")}</p>
           {t("lessen.caption")} <br /><br /> 
@@ -32,8 +36,7 @@ const Page = () => {
           </div>
         </div>
         <div className="col-span-2 pt-10">
-          <Image width={900} height={1000} src={image} alt="patroon" /><br />
-         
+          <Image width={ smallScreen ? 385 : 900} height={smallScreen ? 500 : 1000} src={image} alt="patroon" /><br />
         </div>
       </div>
     </>

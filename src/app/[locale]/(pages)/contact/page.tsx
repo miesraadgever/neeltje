@@ -2,11 +2,13 @@
 
 import React from 'react';
 import dynamic from "next/dynamic";
+import {useWindowSize} from "@/lib/hooks/useWindowsize";
 
 const Page = async () => {
     const Contact = dynamic(() => import("../../../../components/Contact"), {
         ssr: false,
     });
+
 
     return (
         <div className="flex justify-center items-center flex-col">
